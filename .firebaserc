@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "rememory-30ff7"
-  }
+  },
+  "targets": {
+    "rememory-30ff7": {
+      "hosting": {
+        "rememory": [
+          "rememory"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
