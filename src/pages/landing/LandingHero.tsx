@@ -1,7 +1,10 @@
 import hippoSayHi from '@/assets/hippo/hippo_say_hi.png'
 import { Button } from '@/components/ui/button'
+import { useNavigate } from 'react-router-dom'
 
 const LandingHero = () => {
+  const navigate = useNavigate()
+
   return (
     <main className='flex-1 md:h-[calc(100vh-80px)] flex flex-col md:flex-row items-center justify-center gap-8 md:gap-20 max-w-screen-xl mx-auto w-full px-4 md:px-8 pt-16 md:pt-0'>
       <div className='flex items-center justify-center mb-6 md:mb-0'>
@@ -19,12 +22,16 @@ const LandingHero = () => {
           Ôn tập, ghi nhớ và làm chủ từ vựng với Rememory – ứng dụng học từ vựng hiện đại, cá nhân hóa và siêu trực
           quan.
         </p>
-        <Button className='cursor-pointer w-full md:w-80 py-5 md:py-6 text-base md:text-lg font-extrabold rounded-2xl bg-[color:var(--secondary)] text-[color:var(--secondary-foreground)] shadow-[0_8px_0_0_var(--accent)] mb-4 tracking-wide border-none outline-none transition-all duration-200 hover:brightness-105 active:shadow-[0_2px_0_0_var(--accent)] animate-bounce-slow hover:bg-[color:var(--secondary/50)]'>
+        <Button
+          type='submit'
+          className='cursor-pointer w-full md:w-80 py-5 md:py-6 rounded-2xl text-base md:text-lg font-bold shadow-[0_4px_0_0_var(--border)] border-2 border-[color:var(--border)] bg-[color:var(--secondary)] text-[color:var(--secondary-foreground)] hover:bg-[color:var(--secondary)]/90 transition-all'
+        >
           BẮT ĐẦU
         </Button>
         <Button
           variant='outline'
-          className='cursor-pointer w-full md:w-80 py-5 md:py-6 text-base md:text-lg font-extrabold rounded-2xl border-2 border-[color:var(--border)] shadow-[0_4px_0_0_var(--border)] tracking-wide outline-none transition-all duration-200 hover:bg-[color:var(--accent)] hover:shadow-[0_2px_0_0_var(--border)]'
+          className='cursor-pointer w-full md:w-80 py-5 md:py-6 rounded-2xl text-base md:text-lg font-bold shadow-[0_4px_0_0_var(--border)] border-2 border-[color:var(--border)] bg-[color:var(--background)] text-[color:var(--foreground)] hover:bg-[color:var(--accent)]/30 transition-all'
+          onClick={() => navigate('/auth/login')}
         >
           TÔI ĐÃ CÓ TÀI KHOẢN
         </Button>
