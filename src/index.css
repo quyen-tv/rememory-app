@@ -137,3 +137,9 @@ html {
   scrollbar-width: thin;
   scrollbar-color: var(--secondary) var(--background);
 }
+
+input::-ms-reveal,
+input::-ms-clear,
+input::-webkit-credentials-auto-fill-button {
+  display: none !important;
+}
