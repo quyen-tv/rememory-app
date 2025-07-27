@@ -53,8 +53,8 @@ export function useLogin() {
 
         if (firebaseError.code === 'auth/user-not-found') {
           message = 'Email không tồn tại'
-        } else if (firebaseError.code === 'auth/wrong-password') {
-          message = 'Sai mật khẩu'
+        } else if (firebaseError.code === 'auth/invalid-credential') {
+          message = 'Thông tin đăng nhập không hợp lệ'
         } else if (firebaseError.code === 'auth/invalid-email') {
           message = 'Email không hợp lệ'
         } else if (firebaseError.code === 'auth/too-many-requests') {
