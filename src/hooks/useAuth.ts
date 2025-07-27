@@ -12,13 +12,17 @@ interface FirebaseAuthError {
 
 export function useAuthListener() {
   const setUser = useAuthStore((state) => state.setUser)
+  const [isAuthReady, setIsAuthReady] = useState(false)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user)
+      setIsAuthReady(true)
     })
     return () => unsubscribe()
   }, [setUser])
+
+  return { isAuthReady }
 }
 
 export function useLogin() {
