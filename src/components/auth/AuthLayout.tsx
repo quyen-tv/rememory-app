@@ -55,7 +55,7 @@ const AuthLayout = ({
                 onClick={onMobileLinkClick}
                 className='cursor-pointer font-bold text-[color:var(--secondary)] hover:text-[color:var(--secondary)]/90'
               >
-                ĐĂNG KÝ
+                {mobileLinkText}
               </span>
             </p>
           </div>
