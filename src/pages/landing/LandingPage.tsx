@@ -1,4 +1,4 @@
-import useScrollAndMobile from '@/hooks/useScrollAndMobile'
+import { useScrollAndMobile } from '@/hooks'
 import LandingHeader from '@/pages/landing/LandingHeader'
 import LandingHero from '@/pages/landing/LandingHero'
 import LandingFooter from '@/pages/landing/LandingFooter'

@@ -1,10 +1,18 @@
-import { Button } from '@/components/ui/button'
-import { useLogout } from '@/hooks/useAuth'
+import { useLogout } from '@/hooks'
 import { useAuthStore } from '@/store/authStore'
 import { useNavigate } from 'react-router-dom'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import Layout from '@/components/layout/Layout'
+import {
+  Button,
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+  Avatar,
+  AvatarFallback,
+  AvatarImage
+} from '@/components/ui'
+import { Layout } from '@/components/layout'
 
 const Dashboard = () => {
   const logoutFunction = useLogout()

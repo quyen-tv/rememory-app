@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-function useScrollAndMobile() {
+export function useScrollAndMobile() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
@@ -25,5 +25,3 @@ function useScrollAndMobile() {
 
   return { isScrolled, isMobile }
 }
-
-export default useScrollAndMobile

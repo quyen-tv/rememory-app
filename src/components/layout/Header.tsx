@@ -1,9 +1,8 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage, SearchInput } from '@/components/ui'
 import { useAuthStore } from '@/store/authStore'
 import logo from '@/assets/logo/logo.png'
 import { useState } from 'react'
-import useScrollAndMobile from '@/hooks/useScrollAndMobile'
-import SearchInput from '../ui/search-input'
+import { useScrollAndMobile } from '@/hooks/useScrollAndMobile'
 
 const Header = () => {
   const user = useAuthStore((state) => state.user)

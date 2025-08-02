@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui'
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 
@@ -17,4 +17,4 @@ const SocialButton = ({ icon, children, className, ...props }: SocialButtonProps
   </Button>
 )
 
-export default SocialButton
+export { SocialButton }

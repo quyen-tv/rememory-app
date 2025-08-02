@@ -1,9 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import SocialButton from '@/components/auth/SocialButton'
-import AuthLayout from '@/components/auth/AuthLayout'
+import { Input, Button } from '@/components/ui'
+import { SocialButton, AuthLayout } from '@/components/auth'
 import { FcGoogle } from 'react-icons/fc'
 import { FaFacebook } from 'react-icons/fa'
 

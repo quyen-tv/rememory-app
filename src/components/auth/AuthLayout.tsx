@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button } from '@/components/ui/button'
-import useScrollAndMobile from '@/hooks/useScrollAndMobile'
+import { Button } from '@/components/ui'
+import { useScrollAndMobile } from '@/hooks'
 
 interface AuthLayoutProps {
   children: ReactNode
@@ -65,4 +65,4 @@ const AuthLayout = ({
   )
 }
 
-export default AuthLayout
+export { AuthLayout }

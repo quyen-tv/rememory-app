@@ -1,17 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import SocialButton from '@/components/auth/SocialButton'
-import { Button } from '@/components/ui/button'
-import AuthLayout from '@/components/auth/AuthLayout'
-import { FormInput } from '@/components/ui/form-field'
+import { SocialButton, AuthLayout } from '@/components/auth'
+import { Button, FormInput, Alert, AlertDescription } from '@/components/ui'
 import { loginSchema, type LoginFormData } from '@/lib/validations/auth'
 import { AUTH_MESSAGES, SOCIAL_LOGIN, LEGAL_TEXT } from '@/lib/constants'
 import { FcGoogle } from 'react-icons/fc'
 import { FaFacebook } from 'react-icons/fa'
-import { useLogin } from '@/hooks/useAuth'
-import { Alert, AlertDescription } from '@/components/ui/alert'
-
+import { useLogin } from '@/hooks'
 const LoginPage = () => {
   const navigate = useNavigate()
   const { login, loading, error } = useLogin()

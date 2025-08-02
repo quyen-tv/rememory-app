@@ -1,5 +1,5 @@
 import hippoSayHi from '@/assets/hippo/hippo_say_hi.png'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/ui'
 import { useNavigate } from 'react-router-dom'
 
 const LandingHero = () => {
