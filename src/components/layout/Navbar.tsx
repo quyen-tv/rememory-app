@@ -1,10 +1,19 @@
 import { useNavigation } from '@/hooks'
 
-const Navbar = () => {
+type NavbarProps = {
+  isScrolled: boolean
+}
+
+const Navbar = ({ isScrolled }: NavbarProps) => {
   const { menuItems, activeItem, handleMenuClick } = useNavigation()
 
+  const navbarClass = [
+    'w-full transition-all duration-500 ease-in-out px-6 fixed bottom-0 z-50',
+    isScrolled ? 'bg-[color:var(--background)]/95 backdrop-blur-sm shadow-t-sm' : 'bg-transparent'
+  ].join(' ')
+
   return (
-    <nav className='fixed bottom-0 left-0 w-full bg-[color:var(--background)]/95 border-t md:hidden z-50'>
+    <nav className={navbarClass}>
       <ul className='flex justify-around items-center h-16'>
         {menuItems.map((item) => (
           <li key={item.id}>

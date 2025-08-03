@@ -22,7 +22,7 @@ const Layout = ({ children }: LayoutProps) => {
         </main>
       </div>
       <div className='md:hidden'>
-        <Navbar />
+        <Navbar isScrolled={isScrolled} />
       </div>
     </div>
   )

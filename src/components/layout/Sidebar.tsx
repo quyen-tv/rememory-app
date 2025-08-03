@@ -5,7 +5,7 @@ const Sidebar = () => {
 
   return (
     <aside className='bg-[var(--background)]/95 w-64 min-h-screen'>
-      <nav className='p-4'>
+      <nav className='p-2'>
         <ul className='space-y-2'>
           {menuItems.map((item) => (
             <li key={item.id}>
