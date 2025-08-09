@@ -29,7 +29,7 @@ export const ProtectedRoute = ({ redirectPath = '/auth/login', children }: Prote
 
   if (!isAuthReady) {
     return (
-      <div className='flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900'>
+      <div className='flex items-center justify-center min-h-screen bg-background text-foreground'>
         <Card className='w-[350px] text-center p-6 space-y-4'>
           <CardHeader>
             <CardTitle>Đang tải...</CardTitle>
