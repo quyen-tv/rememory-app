@@ -3,7 +3,8 @@ import LandingPage from '@/pages/landing/LandingPage'
 import LoginPage from '@/pages/auth/LoginPage'
 import Dashboard from './pages/dashboard/DashBoard'
 import RegisterPage from '@/pages/auth/RegisterPage'
-import ProtectedRoute from './components/ProtectedRoute'
+import ProtectedRoute from '@/components/ProtectedRoute'
+import CreateSet from '@/pages/flashcard/CreateSet'
 
 const App = () => {
   return (
@@ -17,6 +18,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path='/create-set'
+          element={
+            <ProtectedRoute>
+              <CreateSet />
             </ProtectedRoute>
           }
         />
