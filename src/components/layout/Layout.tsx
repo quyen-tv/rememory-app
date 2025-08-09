@@ -4,9 +4,10 @@ import { useScrollAndMobile } from '@/hooks'
 
 interface LayoutProps {
   children: ReactNode
+  showSidebar?: boolean
 }
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, showSidebar = true }: LayoutProps) => {
   const mainRef = useRef<HTMLElement>(null)
   const { isScrolled, isMobile } = useScrollAndMobile({ scrollContainerRef: mainRef })
 
@@ -14,10 +15,12 @@ const Layout = ({ children }: LayoutProps) => {
     <div className='flex flex-col h-screen bg-[var(--background)] text-[var(--foreground)]'>
       <Header isScrolled={isScrolled} isMobile={isMobile} />
       <div className='flex flex-1 overflow-hidden'>
-        <div className='hidden md:block'>
-          <Sidebar />
-        </div>
-        <main ref={mainRef} className='flex-1 overflow-y-auto p-6'>
+        {showSidebar && (
+          <div className='hidden md:block'>
+            <Sidebar />
+          </div>
+        )}
+        <main ref={mainRef} className='flex-1 overflow-y-auto'>
           {children}
         </main>
       </div>
