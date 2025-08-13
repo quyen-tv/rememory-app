@@ -139,6 +139,10 @@ html {
   scrollbar-color: var(--secondary) var(--background);
 }
 
+body {
+  overflow-y: auto;
+}
+
 input::-ms-reveal,
 input::-ms-clear,
 input::-webkit-credentials-auto-fill-button {
