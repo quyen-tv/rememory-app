@@ -2,14 +2,17 @@ import { Avatar, AvatarFallback, AvatarImage, SearchInput } from '@/components/u
 import { useAuthStore } from '@/store/authStore'
 import logo from '@/assets/logo/logo.png'
 import { useState } from 'react'
+import { useScrollStore } from '@/store/scrollStore'
+import { useHeaderStore } from '@/store/headerStore'
 
 type HeaderProps = {
-  isScrolled: boolean
   isMobile: boolean
 }
 
-const Header = ({ isScrolled, isMobile }: HeaderProps) => {
+const Header = ({ isMobile }: HeaderProps) => {
   const user = useAuthStore((state) => state.user)
+  const isScrolled = useScrollStore((state) => state.isScrolled)
+  const hideOnScroll = useHeaderStore((state) => state.hideOnScroll)
   const [searchValue, setSearchValue] = useState('')
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,7 +25,8 @@ const Header = ({ isScrolled, isMobile }: HeaderProps) => {
 
   const headerClass = [
     'w-full transition-all duration-500 ease-in-out px-6',
-    isScrolled ? 'sticky top-0 z-50 bg-[color:var(--background)]/95 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+    isScrolled ? 'sticky top-0 z-50 bg-[color:var(--background)]/95 backdrop-blur-sm shadow-sm' : 'bg-transparent',
+    hideOnScroll ? '-translate-y-full' : 'translate-y-0'
   ].join(' ')
 
   return (

@@ -1,26 +1,36 @@
 import { Flashcard } from '@/components/flashcard/Flashcard'
 import { Layout } from '@/components/layout'
 import { Button, Input, Textarea } from '@/components/ui'
+import { useHeaderStore } from '@/store/headerStore'
+import { useScrollStore } from '@/store/scrollStore'
+import { useEffect } from 'react'
 import { FaCog, FaKeyboard, FaPlus } from 'react-icons/fa'
 import { FaArrowRightArrowLeft } from 'react-icons/fa6'
 import { IoSparkles } from 'react-icons/io5'
 
 const CreateSet = () => {
+  const isScrolled = useScrollStore((state) => state.isScrolled)
+  const setHideOnScroll = useHeaderStore((state) => state.setHideOnScroll)
+
+  useEffect(() => {
+    setHideOnScroll(isScrolled)
+  }, [isScrolled, setHideOnScroll])
+
   return (
     <Layout showSidebar={false}>
-      <div className='flex flex-col gap-4 px-4 md:px-24 lg:px-80 py-6 bg-background min-h-full pb-24'>
-        <div className='flex items-center justify-between'>
-          <div>
-            <h1 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground mb-2 text-center drop-shadow-sm'>
-              Tạo một học phần mới
-            </h1>
-          </div>
-          <div>
-            <Button className='cursor-pointer py-3 md:py-5 rounded-xl md:rounded-2xl text-sm md:text-base font-bold shadow-[0_2px_0_0_var(--border)] border-2 border-border bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all'>
-              Tạo
-            </Button>
-          </div>
+      <div className='sticky top-0 z-50 flex items-center justify-between py-4 px-4 md:px-24'>
+        <div>
+          <h1 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground mb-2 text-center drop-shadow-sm'>
+            Tạo một học phần mới
+          </h1>
         </div>
+        <div>
+          <Button className='cursor-pointer py-3 md:py-5 rounded-xl md:rounded-2xl text-sm md:text-base font-bold shadow-[0_2px_0_0_var(--border)] border-2 border-border bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all'>
+            Tạo
+          </Button>
+        </div>
+      </div>
+      <div className='flex flex-col gap-4 px-4 md:px-24 py-6 bg-background min-h-full'>
         <div>
           <Input
             type='text'
@@ -70,6 +80,11 @@ const CreateSet = () => {
               <span className='border-b-4 border-primary hover:border-secondary hover:text-secondary'>THÊM THẺ</span>
             </div>
           </div>
+        </div>
+        <div className='w-full flex items-center justify-end'>
+          <Button className='cursor-pointer w-20 h-12 py-3 md:py-5 rounded-xl md:rounded-2xl text-sm md:text-base font-bold shadow-[0_2px_0_0_var(--border)] border-2 border-border bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all'>
+            Tạo
+          </Button>
         </div>
       </div>
     </Layout>

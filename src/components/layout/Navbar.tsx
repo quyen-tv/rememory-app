@@ -1,15 +1,13 @@
 import { useNavigation } from '@/hooks'
+import { useScrollStore } from '@/store/scrollStore'
 
-type NavbarProps = {
-  isScrolled: boolean
-}
-
-const Navbar = ({ isScrolled }: NavbarProps) => {
+const Navbar = () => {
   const { menuItems, activeItem, handleMenuClick } = useNavigation()
+  const { isScrolled } = useScrollStore()
 
   const navbarClass = [
     'w-full transition-all duration-500 ease-in-out px-6 fixed bottom-0 z-50',
-    isScrolled ? 'bg-[color:var(--background)]/95 backdrop-blur-sm shadow-t-sm' : 'bg-transparent'
+    isScrolled ? 'bg-[color:var(--background)]/95 backdrop-blur-sm shadow-t-sm' : 'bg-background'
   ].join(' ')
 
   return (
