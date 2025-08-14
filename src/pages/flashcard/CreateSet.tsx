@@ -1,6 +1,7 @@
 import { Flashcard } from '@/components/flashcard/Flashcard'
 import { Layout } from '@/components/layout'
 import { Button, Input, Textarea } from '@/components/ui'
+import { useSticky } from '@/hooks/useSticky'
 import { useHeaderStore } from '@/store/headerStore'
 import { useScrollStore } from '@/store/scrollStore'
 import { useEffect } from 'react'
@@ -11,14 +12,21 @@ import { IoSparkles } from 'react-icons/io5'
 const CreateSet = () => {
   const isScrolled = useScrollStore((state) => state.isScrolled)
   const setHideOnScroll = useHeaderStore((state) => state.setHideOnScroll)
+  const { stickyRef, isSticky } = useSticky()
 
   useEffect(() => {
     setHideOnScroll(isScrolled)
   }, [isScrolled, setHideOnScroll])
 
+  const titleClass = [
+    'sticky top-0 z-50 flex items-center justify-between py-4 px-4 md:px-24 transition-colors duration-300',
+    isSticky && 'bg-card'
+  ].join(' ')
+
   return (
     <Layout showSidebar={false}>
-      <div className='sticky top-0 z-50 flex items-center justify-between py-4 px-4 md:px-24'>
+      <div ref={stickyRef}></div>
+      <div className={titleClass}>
         <div>
           <h1 className='text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground mb-2 text-center drop-shadow-sm'>
             Tạo một học phần mới
